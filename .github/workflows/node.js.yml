@@ -33,6 +33,6 @@
 
               - run: npm i
               - name: testing
-                run:
-                  npm run dev
+                run: |
+                  npm run dev &&
                   npm test
