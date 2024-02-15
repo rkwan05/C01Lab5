@@ -27,11 +27,11 @@
                 with:
                   node-version: ${{ matrix.node-version }}
               
-
               - name: MongoDB in GitHub Actions
                 uses: supercharge/mongodb-github-action@1.10.0
 
-              - run: npm i
+              - run: npm i 
+              - run: npm install -g jest
               - name: testing
                 run: |
                   npm run dev &
