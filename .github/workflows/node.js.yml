@@ -31,7 +31,6 @@
                 uses: supercharge/mongodb-github-action@1.10.0
 
               - run: npm i 
-              - run: npm install -g jest
               - name: testing
                 run: |
                   npm run dev &
