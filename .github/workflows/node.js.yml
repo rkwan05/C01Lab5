@@ -31,7 +31,6 @@
               - name: MongoDB in GitHub Actions
                 uses: supercharge/mongodb-github-action@1.10.0
 
-              - run: npm run dev
-
               - run: npm i
+              - run: npm run dev
               - run: npm test
