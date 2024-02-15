@@ -54,33 +54,21 @@ test("/getAllNotes - Return list of zero notes for getAllNotes", async () => {
   });
   
   test("/getAllNotes - Return list of two notes for getAllNotes", async () => {
-    const title = "NoteTitleTest1";
-    const content = "NoteTitleContent1";
+    const title = "NoteTitleTest";
+    const content = "NoteTitleContent";
 
-    await fetch(`${SERVER_URL}/postNote`, {
-        method: "POST",
-        headers: {
-        "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-        title: title,
-        content: content,
-        }),
-    });
-
-    const title2 = "NoteTitleTest2";
-    const content2 = "NoteTitleContent2";
-
-    await fetch(`${SERVER_URL}/postNote`, {
-        method: "POST",
-        headers: {
-        "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-        title: title2,
-        content: content2,
-        }),
-    });
+    for(let i = 0; i < 2; i++) {
+        await fetch(`${SERVER_URL}/postNote`, {
+            method: "POST",
+            headers: {
+            "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+            title: title+i,
+            content: content+i,
+            }),
+        });
+    }
 
     // Code here
     const getAllNotesRes = await fetch(`${SERVER_URL}/getAllNotes`, {
@@ -264,38 +252,18 @@ test("/getAllNotes - Return list of zero notes for getAllNotes", async () => {
     const title = "NoteTitleTest";
     const content = "NoteTitleContent";
 
-    await fetch(`${SERVER_URL}/postNote`, {
-        method: "POST",
-        headers: {
-        "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-        title: title,
-        content: content,
-        }),
-    });
-
-    await fetch(`${SERVER_URL}/postNote`, {
-        method: "POST",
-        headers: {
-        "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-        title: 'title2',
-        content: 'content2',
-        }),
-    });
-
-    await fetch(`${SERVER_URL}/postNote`, {
-        method: "POST",
-        headers: {
-        "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-        title: 'title3',
-        content: 'content3',
-        }),
-    });
+    for(let i = 0; i < 3; i++) {
+        await fetch(`${SERVER_URL}/postNote`, {
+            method: "POST",
+            headers: {
+            "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+            title: title+i,
+            content: content+i,
+            }),
+        });
+    }
 
     const deleteAllNotesRes = await fetch(`${SERVER_URL}/deleteAllNotes`, {
         method: "DELETE",
